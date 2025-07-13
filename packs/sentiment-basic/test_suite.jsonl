@@ -1,0 +1,20 @@
+{"input": "I'm thrilled about my promotion!", "expected_category": "positive"}
+{"input": "This has been a terrible week.", "expected_category": "negative"}
+{"input": "I love spending time with my family.", "expected_category": "positive"}
+{"input": "I'm worried about the test results.", "expected_category": "negative"}
+{"input": "The vacation was absolutely wonderful!", "expected_category": "positive"}
+{"input": "I'm frustrated with this software.", "expected_category": "negative"}
+{"input": "Today brought such good news!", "expected_category": "positive"}
+{"input": "I feel disappointed by the decision.", "expected_category": "negative"}
+{"input": "This restaurant has amazing food.", "expected_category": "positive"}
+{"input": "The project deadline is stressing me out.", "expected_category": "negative"}
+{"input": "I'm grateful for all the support.", "expected_category": "positive"}
+{"input": "This mistake is embarrassing.", "expected_category": "negative"}
+{"input": "The weather is perfect for hiking!", "expected_category": "positive"}
+{"input": "I'm anxious about tomorrow's presentation.", "expected_category": "negative"}
+{"input": "My friend's kindness touched my heart.", "expected_category": "positive"}
+{"input": "The service at this place is awful.", "expected_category": "negative"}
+{"input": "I feel energized and ready to go!", "expected_category": "positive"}
+{"input": "This traffic jam is making me late.", "expected_category": "negative"}
+{"input": "The concert exceeded my expectations.", "expected_category": "positive"}
+{"input": "I'm sad to see this chapter end.", "expected_category": "negative"}
