@@ -1,22 +1,36 @@
-# ARC Core - Adaptive Recursive Consciousness Engine
+# ARC Core - Public Interface Repository
+
+This repository contains the **public interface** for ARC Core (Adaptive Recursive Consciousness Engine). 
+
+**WARNING: This is NOT the implementation repository - it only shows the public API.**
 
 [![PyPI version](https://badge.fury.io/py/arc-core.svg)](https://badge.fury.io/py/arc-core)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-**ARC Core** is a modular continual learning system for language models inspired by biological learning mechanisms. It enables language models to learn continuously while avoiding catastrophic forgetting through biologically-inspired memory systems and safety mechanisms.
+## Installation & Usage
 
-## 🧠 Key Features
+To use ARC Core, install the package from PyPI:
 
+```bash
+pip install metisos-arc-core
+```
+
+## What is ARC Core?
+
+ARC Core is a sophisticated AI learning system that implements biological learning mechanisms in language models, enabling true continual learning and adaptive consciousness. 
+
+**Key Features:**
 - **Biological Learning Mechanisms**: Contextual gating, cognitive inhibition, and sleep-like consolidation
-- **Continual Learning**: LoRA adapters with Elastic Weight Consolidation (EWC) to prevent forgetting
-- **Hierarchical Memory System**: Working, episodic, and semantic memory stores
-- **Safety Systems**: Multi-layered cognitive safety and metacognitive monitoring
+- **Hierarchical Memory Systems**: Working, episodic, and semantic memory with temporal context  
+- **Continual Learning**: Real weight updates without catastrophic forgetting
+- **Safety-First Design**: Multi-layered cognitive inhibition and metacognitive monitoring
+- **Teaching Pack System**: Modular training with specialized learning modules
 - **Modular Teaching Packs**: Easy-to-use training modules for specific domains
 - **CLI Interface**: Simple command-line tools for model management
 - **Hugging Face Integration**: Seamless model loading and saving
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -338,4 +352,4 @@ Apache License 2.0 - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**ARC Core** - *Enabling truly adaptive and conscious-like learning in AI systems* 🧠✨
+**ARC Core** - *Enabling truly adaptive and conscious-like learning in AI systems*
