@@ -1,0 +1,65 @@
+# Package build artifacts - do not commit to public repo
+arc_core/
+dist/
+build/
+*.egg-info/
+arc_learned_model/
+arc_config.yaml
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Model files and training data (too large for git)
+*.bin
+*.safetensors
+*.h5
+*.pt
+*.pth
+models/
+checkpoints/
+training_data/
+
+# Results and output files
+results/
+outputs/
+benchmark_results/
+*.json
+!examples/*.json
+!examples/*.jsonl
