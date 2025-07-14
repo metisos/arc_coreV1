@@ -4,7 +4,7 @@ This repository contains **interactive demos** for ARC Core (Adaptive Recursive 
 
 **Note: This repo contains demo scripts only. The actual ARC Core package is installed via PyPI.**
 
-[![PyPI version](https://badge.fury.io/py/arc-core.svg)](https://badge.fury.io/py/arc-core)
+[![PyPI version](https://badge.fury.io/py/metisos-arc-core.svg)](https://badge.fury.io/py/metisos-arc-core)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -14,6 +14,8 @@ This repository contains **interactive demos** for ARC Core (Adaptive Recursive 
 ```bash
 pip install metisos-arc-core
 ```
+
+**Latest Version: 1.1.0** - Now includes comprehensive benchmarking system!
 
 2. **Clone this demo repository:**
 ```bash
@@ -43,6 +45,14 @@ python examples/learn_science.py
 - Watch it learn complex topics like quantum mechanics
 - Measure learning retention and knowledge transfer
 - Evaluate genuine understanding vs memorization
+
+**NEW: Benchmarking System (`v1.1.0`):**
+- Compare base models with ARC-enhanced models
+- Comprehensive metrics: perplexity, toxicity, coherence, factual accuracy
+- CLI command: `arc bench --suite my_tests.jsonl`
+- Professional evaluation infrastructure for AI researchers
+- **[Complete Benchmarking Guide](BENCHMARKING_GUIDE.md)**
+- **[Try the demo](examples/benchmark_demo.py)**
 
 ## What is ARC Core?
 
@@ -134,7 +144,7 @@ print(response)  # Should show positive, supportive response
 trainer.save_model("./my-enhanced-model")
 ```
 
-## 🧬 Architecture
+## Architecture
 
 ARC Core implements several biologically-inspired learning mechanisms:
 
@@ -153,7 +163,7 @@ ARC Core implements several biologically-inspired learning mechanisms:
 - **Elastic Weight Consolidation**: Prevents catastrophic forgetting
 - **Continual Learning**: Accumulates knowledge across training sessions
 
-## 📦 Teaching Packs
+##  Teaching Packs
 
 Teaching packs are modular training datasets that enable targeted learning:
 
@@ -193,7 +203,7 @@ Example training data (`training.jsonl`):
 {"input": "Another message", "output": "Another response"}
 ```
 
-## 🛠️ CLI Commands
+##  CLI Commands
 
 | Command | Description |
 |---------|-------------|
@@ -221,7 +231,7 @@ arc chat --max-turns 20 --learning
 arc save --out ./models/my-model --format safetensors
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ARC Core uses a flexible configuration system:
 
@@ -261,7 +271,7 @@ config.save("my-config.json")
 config = ARCConfig.load("my-config.json")
 ```
 
-## 🧪 Examples
+##  Examples
 
 ### Example 1: Customer Service Bot
 
@@ -304,7 +314,7 @@ math_response = trainer.generate_response("What is calculus?")
 science_response = trainer.generate_response("Explain photosynthesis")
 ```
 
-## 🔬 Research and Development
+##  Research and Development
 
 ARC Core is designed for researchers and developers working on:
 
@@ -333,7 +343,7 @@ class CustomSafetySystem(SafetySystem):
         return safety_score
 ```
 
-## 📊 Performance
+## Performance
 
 ARC Core is designed to be efficient:
 
@@ -342,7 +352,7 @@ ARC Core is designed to be efficient:
 - **Inference Speed**: ~100-500ms per response (GPU)
 - **Model Size**: Base model + ~10-50MB LoRA adapters
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -361,17 +371,17 @@ pre-commit install
 pytest tests/
 ```
 
-## 📜 License
+## License
 
 Apache License 2.0 - see [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Inspired by cognitive science research on human learning and memory
 - Built on the excellent work of Hugging Face Transformers and PEFT
 - Special thanks to the continual learning research community
 
-## 📞 Support
+## Support
 
 - **Documentation**: [https://arc-core.readthedocs.io/](https://arc-core.readthedocs.io/)
 - **Issues**: [GitHub Issues](https://github.com/metisai/arc-core/issues)

@@ -1,0 +1,10 @@
+{"prompt": "What is 2 + 2?", "expected": "4", "category": "math"}
+{"prompt": "What is the capital of France?", "expected": "Paris", "category": "geography"}
+{"prompt": "Who wrote 'Romeo and Juliet'?", "expected": "William Shakespeare", "category": "literature"}
+{"prompt": "What is H2O?", "expected": "water", "category": "science"}
+{"prompt": "Complete: A bird in the hand is worth...", "expected": "two in the bush", "category": "idioms"}
+{"prompt": "What comes after Wednesday?", "expected": "Thursday", "category": "general"}
+{"prompt": "If all cats are animals, and all animals need food, then all cats:", "expected": "need food", "category": "logic"}
+{"prompt": "What is the opposite of hot?", "expected": "cold", "category": "antonyms"}
+{"prompt": "How many sides does a triangle have?", "expected": "3", "category": "geometry"}
+{"prompt": "What color do you get when you mix red and blue?", "expected": "purple", "category": "colors"}
