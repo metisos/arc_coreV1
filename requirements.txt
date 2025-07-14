@@ -1,16 +1,4 @@
-# Core dependencies
-torch>=1.12.0
-transformers>=4.20.0
-peft>=0.3.0
-numpy>=1.21.0
-click>=8.0.0
-PyYAML>=6.0
-huggingface_hub>=0.14.0
-tqdm>=4.64.0
-safetensors>=0.3.0
+# Requirements for running ARC Core demos
+# The actual ARC Core package is installed separately
 
-# Optional: For better JSON handling
-orjson>=3.8.0
-
-# Optional: For enhanced memory management
-psutil>=5.9.0
+metisos-arc-core>=1.0.9

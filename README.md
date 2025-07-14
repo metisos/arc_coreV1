@@ -1,28 +1,23 @@
-# ARC Core - Public Interface Repository
+# ARC Core - Interactive Demo Repository
 
-This repository contains the **public interface** for ARC Core (Adaptive Recursive Consciousness Engine). 
+This repository contains **interactive demos** for ARC Core (Adaptive Recursive Consciousness Engine).
 
-**WARNING: This is NOT the implementation repository - it only shows the public API.**
+**Note: This repo contains demo scripts only. The actual ARC Core package is installed via PyPI.**
 
 [![PyPI version](https://badge.fury.io/py/arc-core.svg)](https://badge.fury.io/py/arc-core)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Installation & Usage
+## Quick Start
 
-To use ARC Core, install the package from PyPI:
-
+1. **Install ARC Core package:**
 ```bash
 pip install metisos-arc-core
 ```
 
-## Try It Now - Interactive Demo
-
-**Want to see ARC's continual learning in action?** Run our interactive demo:
-
+2. **Clone this demo repository:**
 ```bash
-# Clone this repo
-git clone https://github.com/your-username/arc-core.git
+git clone https://github.com/metisos/arc_coreV1.git
 cd arc-core
 
 # Install ARC Core
