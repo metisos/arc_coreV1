@@ -16,6 +16,39 @@ To use ARC Core, install the package from PyPI:
 pip install metisos-arc-core
 ```
 
+## Try It Now - Interactive Demo
+
+**Want to see ARC's continual learning in action?** Run our interactive demo:
+
+```bash
+# Clone this repo
+git clone https://github.com/your-username/arc-core.git
+cd arc-core
+
+# Install ARC Core
+pip install metisos-arc-core
+
+# Run the interactive demo
+python try_arc.py
+
+# Or run the science learning experiment
+python examples/learn_science.py
+```
+
+**Two demo options:**
+
+**Interactive Demo (`try_arc.py`):**
+- Chat with ARC and watch it learn in real-time
+- Teach it new facts and see responses improve
+- Save learned models (only ~3MB vs 500MB base model)
+- Experience continual learning without catastrophic forgetting
+
+**Science Learning Demo (`examples/learn_science.py`):**
+- Test ARC's scientific knowledge comprehension
+- Watch it learn complex topics like quantum mechanics
+- Measure learning retention and knowledge transfer
+- Evaluate genuine understanding vs memorization
+
 ## What is ARC Core?
 
 ARC Core is a sophisticated AI learning system that implements biological learning mechanisms in language models, enabling true continual learning and adaptive consciousness. 
