@@ -2,7 +2,7 @@
 ARC Core Basic Usage Example
 
 This example demonstrates how to use the ARC Core package for interactive chat
-and learning capabilities.
+and learning capabilities, including loading saved model states.
 
 Installation:
     pip install metisos-arc-core
@@ -28,8 +28,16 @@ def main():
         print(f"[ERROR] Failed to initialize model: {e}")
         return
     
+    # Load a saved model state
+    print("\nLoading saved model state...")
+    if model.load_learning_state():
+        print("[SUCCESS] Model state loaded successfully!")
+    else:
+        print("[ERROR] Failed to load model state")
+    
     # Interactive chat loop
     print("\nStarting interactive chat. Type 'exit' to quit.")
+    print("Commands: 'exit', 'load', 'save', 'stats'")
     print("You can ask questions or give instructions to the model.\n")
     
     while True:
@@ -37,6 +45,21 @@ def main():
             user_input = input("You: ")
             if user_input.lower() in ('exit', 'quit', 'q'):
                 break
+            elif user_input.lower() == 'load':
+                print("\nLoading saved model state...")
+                if model.load_learning_state():
+                    print("[SUCCESS] Model state loaded successfully!")
+                else:
+                    print("[ERROR] Failed to load model state")
+            elif user_input.lower() == 'save':
+                print("\nSaving model state...")
+                if model.save_learning_state():
+                    print("[SUCCESS] Model state saved successfully!")
+                else:
+                    print("[ERROR] Failed to save model state")
+            elif user_input.lower() == 'stats':
+                print("\nDisplaying model statistics:")
+                model.display_learning_stats()
                 
             # Process the input and get response
             response = model.process_user_interaction(user_input)

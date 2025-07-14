@@ -8,8 +8,9 @@ Key Features Demonstrated:
 - Custom model initialization
 - Advanced configuration
 - Training and fine-tuning
-- Model saving and loading
+- Model state management (save/load)
 - Direct access to biological learning mechanisms
+- Learning statistics and monitoring
 """
 
 import os
@@ -28,32 +29,45 @@ def main():
     
     # 1. Custom Configuration
     print_section("1. Custom Configuration")
-    config = {
-        "model_name": "gpt2",
-        "learning_rate": 1e-4,
-        "lora_rank": 8,
-        "lora_alpha": 16,
-        "lora_dropout": 0.05,
-        "device": "auto",
-        "max_memory_mb": 4000,
-        "biological_learning": {
-            "contextual_gating": True,
-            "cognitive_inhibition": True,
-            "sleep_consolidation": True,
-            "metacognitive_monitoring": True
-        }
+    
+    # Model configuration
+    model_config = {
+        "model_name": "gpt2",  # or "cognitivecomputations/TinyDolphin-2.8-1.1b"
+        "learning_rate": 0.0001,
+        "continue_learning": True
     }
     
-    print("Initializing ARC with custom configuration:")
-    print(json.dumps(config, indent=2))
+    print("Initializing ARC with configuration:")
+    print(json.dumps(model_config, indent=2))
     
     try:
-        model = LearningARCConsciousness(**config)
+        model = LearningARCConsciousness(
+            model_name=model_config["model_name"],
+            learning_rate=model_config["learning_rate"],
+            continue_learning=model_config["continue_learning"]
+        )
         print("\n[SUCCESS] Model initialized with custom configuration")
     except Exception as e:
         print(f"\n[ERROR] Failed to initialize model: {e}")
-        return
+        return  # This return is now properly inside the function
+
+    # 2. Model State Management
+    print_section("2. Model State Management")
     
+    # Try to load existing state
+    print("\nAttempting to load existing model state...")
+    if model.load_learning_state():
+        print("[SUCCESS] Existing state loaded successfully!")
+    else:
+        print("No existing state found - starting fresh")
+    
+    # Save initial state
+    print("\nSaving initial model state...")
+    if model.save_learning_state():
+        print("[SUCCESS] Initial state saved successfully!")
+    else:
+        print("[ERROR] Failed to save initial state")
+        
     # 2. Basic Interaction
     print_section("2. Basic Interaction")
     test_phrases = [
