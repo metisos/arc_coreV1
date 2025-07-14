@@ -506,7 +506,10 @@ class ARCScienceLearner:
             
             print(f"Experiment Duration: {experiment_results['end_time'] - experiment_results['start_time']}")
             print(f"Topics Learned: {len(experiment_results['topic_sessions'])}")
-            print(f"Neural Updates: {final_stats['total_updates'] - initial_stats['total_updates']}")
+            # Safely get neural updates with fallback
+            initial_updates = initial_stats.get('total_updates', 0)
+            final_updates = final_stats.get('total_updates', 0)
+            print(f"Neural Updates: {final_updates - initial_updates}")
             stats = self.arc.get_training_stats()
             print(f"Training Sessions: {stats.get('total_training_sessions', 0)}")
             
@@ -528,7 +531,12 @@ class ARCScienceLearner:
             post_stats = experiment_results['post_learning_stats']
             
             print(f"Topic: {experiment_results['topic'].replace('_', ' ').title()}")
-            print(f"Neural Updates: {post_stats['total_updates'] - pre_stats['total_updates']}")
+            
+            # Safely get neural updates with fallback
+            pre_updates = pre_stats.get('total_updates', 0)
+            post_updates = post_stats.get('total_updates', 0)
+            print(f"Neural Updates: {post_updates - pre_updates}")
+            
             print(f"Average Confidence: {analysis['average_confidence']:.3f}")
             print(f"Learning Rate: {analysis['learning_rate']:.1%}")
             print(f"Confidence Trend: {analysis['confidence_trend']}")
