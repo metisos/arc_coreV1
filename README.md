@@ -424,7 +424,7 @@ Apache License 2.0 - see [LICENSE](LICENSE) file for details.
 - **Documentation**: [https://arc-core.readthedocs.io/](https://arc-core.readthedocs.io/)
 - **Issues**: [GitHub Issues](https://github.com/metisai/arc-core/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/metisai/arc-core/discussions)
-- **Email**: research@metisai.dev
+- **Email**: cjohnson@metisos.com
 
 ---
 
