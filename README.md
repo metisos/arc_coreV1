@@ -1,58 +1,96 @@
-# ARC Core - Interactive Demo Repository
-
-This repository contains **interactive demos** for ARC Core (Adaptive Recursive Consciousness Engine).
-
-**Note: This repo contains demo scripts only. The actual ARC Core package is installed via PyPI.**
+# ARC Core - Adaptive Recursive Consciousness Engine
 
 [![PyPI version](https://badge.fury.io/py/metisos-arc-core.svg)](https://badge.fury.io/py/metisos-arc-core)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+ARC Core is a framework for building continual learning AI systems with biological learning mechanisms, enabling true adaptive behavior and knowledge retention.
+
+## Features
+
+- **Biological Learning**: Implements contextual gating, cognitive inhibition, and sleep-like consolidation
+- **Continual Learning**: Real-time learning with LoRA adapters without catastrophic forgetting
+- **Reasoning Engine**: Graph-based reasoning and pattern recognition
+- **Teaching Pack System**: Modular training with specialized learning modules
+- **CLI Interface**: Simple command-line tools for model management
+
+## Installation
+
+Basic installation:
+```bash
+pip install metisos-arc-core
+```
+
+For GPU support (NVIDIA):
+```bash
+pip install metisos-arc-core[gpu]
+```
+
+For Apple Silicon:
+```bash
+pip install metisos-arc-core[apple]
+```
+
 ## Quick Start
 
-1. **Install ARC Core package:**
+### Using the CLI
+
 ```bash
-pip install metisos-arc-core
+# Initialize a new model (default: TinyDolphin-2.8-1.1b)
+arc init
+
+# Start an interactive chat
+arc chat
+
+# Check system status
+arc status
 ```
 
-**Latest Version: 1.1.0** - Now includes comprehensive benchmarking system!
+### Python API Example
 
-2. **Clone this demo repository:**
-```bash
-git clone https://github.com/metisos/arc_coreV1.git
-cd arc-core
+```python
+from arc_core import LearningARCConsciousness
 
-# Install ARC Core
-pip install metisos-arc-core
+# Initialize the model
+model = LearningARCConsciousness()
 
-# Run the interactive demo
-python try_arc.py
-
-# Or run the science learning experiment
-python examples/learn_science.py
+# Process user input
+response = model.process_user_interaction("Hello, how can you help me?")
+print(f"ARC: {response['thought']}")
 ```
 
-**Two demo options:**
+## CLI Commands
 
-**Interactive Demo (`try_arc.py`):**
-- Chat with ARC and watch it learn in real-time
-- Teach it new facts and see responses improve
-- Save learned models (only ~3MB vs 500MB base model)
-- Experience continual learning without catastrophic forgetting
+```
+arc init       Initialize a new ARC model configuration
+arc chat       Start an interactive chat session
+arc pack       Manage teaching packs
+arc teach      Train the model using a teaching pack
+arc test       Test the model using a teaching pack
+arc save       Save the current model state
+arc status     Show current model status and configuration
+arc check      Check system and package health
+```
 
-**Science Learning Demo (`examples/learn_science.py`):**
-- Test ARC's scientific knowledge comprehension
-- Watch it learn complex topics like quantum mechanics
-- Measure learning retention and knowledge transfer
-- Evaluate genuine understanding vs memorization
+## Teaching Packs
 
-**NEW: Benchmarking System (`v1.1.0`):**
-- Compare base models with ARC-enhanced models
-- Comprehensive metrics: perplexity, toxicity, coherence, factual accuracy
-- CLI command: `arc bench --suite my_tests.jsonl`
-- Professional evaluation infrastructure for AI researchers
-- **[Complete Benchmarking Guide](BENCHMARKING_GUIDE.md)**
-- **[Try the demo](examples/benchmark_demo.py)**
+ARC Core supports teaching packs for specialized training:
+
+```bash
+# List available teaching packs
+arc pack list
+
+# Install a teaching pack
+arc pack install sentiment-basic
+
+# Train using a teaching pack
+arc teach sentiment-basic
+```
+
+### Available Packs
+- **sentiment-basic**: Basic sentiment analysis training
+- **dialogue-basic**: Basic conversation patterns
+- **science-facts**: General science knowledge
 
 ## What is ARC Core?
 
@@ -359,7 +397,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ### Development Setup
 
 ```bash
-git clone https://github.com/metisai/arc-core.git
+git clone https://github.com/metisos/arc_coreV1.git
 cd arc-core
 pip install -e .[dev]
 pre-commit install
