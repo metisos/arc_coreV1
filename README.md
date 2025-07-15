@@ -8,8 +8,11 @@ ARC Core is a framework for building continual learning AI systems with biologic
 
 ## Features
 
+- **Multi-Architecture Support**: Works with various model types (GPT, LLaMA, DeepSeek, etc.) with automatic configuration
 - **Biological Learning**: Implements contextual gating, cognitive inhibition, and sleep-like consolidation
 - **Continual Learning**: Real-time learning with LoRA adapters without catastrophic forgetting
+- **Automatic Model Configuration**: Smart detection of model architecture and optimal LoRA settings
+- **Flexible Training**: Customize learning parameters and target modules for different architectures
 - **Reasoning Engine**: Graph-based reasoning and pattern recognition
 - **Teaching Pack System**: Modular training with specialized learning modules
 - **CLI Interface**: Simple command-line tools for model management
@@ -48,15 +51,52 @@ arc status
 
 ### Python API Example
 
+#### Basic Usage
 ```python
 from arc_core import LearningARCConsciousness
 
-# Initialize the model
+# Initialize with default model (GPT-2)
 model = LearningARCConsciousness()
 
-# Process user input
+# Process interaction
 response = model.process_user_interaction("Hello, how can you help me?")
 print(f"ARC: {response['thought']}")
+```
+
+#### Using Different Models
+ARC Core supports various model architectures with automatic configuration:
+
+```python
+# LLaMA 2 (7B parameters)
+llama_model = LearningARCConsciousness(
+    model_name="meta-llama/Llama-2-7b-hf",
+    device_map="auto"  # Automatically handles device placement
+)
+
+# DeepSeek model
+deepseek_model = LearningARCConsciousness(
+    model_name="deepseek-ai/deepseek-llm-7b",
+    device_map="auto"
+)
+
+# Custom model with specific LoRA configuration
+custom_model = LearningARCConsciousness(
+    model_name="cognitivecomputations/TinyDolphin-2.8-1.1b",
+    lora_config={
+        'r': 8,
+        'lora_alpha': 16,
+        'target_modules': ['q_proj', 'v_proj']  # Optional: specify modules
+    }
+)
+```
+
+#### Saving and Loading
+```python
+# Save the complete learning state
+model.save_learning_state('my_model_state')
+
+# Load the state later
+model.load_learning_state('my_model_state')
 ```
 
 ## CLI Commands
@@ -68,7 +108,9 @@ arc pack       Manage teaching packs
 arc teach      Train the model using a teaching pack
 arc test       Test the model using a teaching pack
 arc save       Save the current model state
+arc load       Load a saved model state
 arc status     Show current model status and configuration
+arc stats      Show learning statistics
 arc check      Check system and package health
 ```
 
@@ -156,30 +198,35 @@ arc chat
 arc save --out ./my-arc-model
 ```
 
-### Python API Usage
+### Advanced Python API Usage
 
 ```python
-from arc_core import ARCTrainer, ARCConfig
+from arc_core import LearningARCConsciousness
 
-# Initialize configuration
-config = ARCConfig()
-config.device = "cuda"  # or "cpu", "mps"
+# Initialize with custom configuration
+config = {
+    "model_name": "cognitivecomputations/TinyDolphin-2.8-1.1b",
+    "device": "cuda",  # or "cpu", "mps" for Apple Silicon
+    "learning_rate": 5e-5,
+    "max_memory_items": 1000
+}
 
-# Create trainer
-trainer = ARCTrainer(config)
+# Create model instance
+model = LearningARCConsciousness(config)
 
-# Initialize with base model
-trainer.initialize_model("cognitivecomputations/TinyDolphin-2.8-1.1b")
+# Process interactions and learn in real-time
+response = model.process_user_interaction("I'm feeling great today!")
+print(f"ARC: {response['thought']}")
 
-# Train on a teaching pack
-result = trainer.train_on_pack("sentiment-basic")
+# View learning statistics
+stats = model.get_learning_statistics()
+print(f"Total interactions: {stats['total_interactions']}")
 
-# Generate responses
-response = trainer.generate_response("I'm feeling great today!")
-print(response)  # Should show positive, supportive response
+# Save the complete learning state
+model.save_learning_state("my_saved_state")
 
-# Save the enhanced model
-trainer.save_model("./my-enhanced-model")
+# Later, load the state to continue learning
+model.load_learning_state("my_saved_state")
 ```
 
 ## Architecture

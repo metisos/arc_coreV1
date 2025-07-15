@@ -15,6 +15,7 @@ Key Features Demonstrated:
 
 import os
 import json
+import torch
 from datetime import datetime
 from arc_core import LearningARCConsciousness
 
@@ -30,36 +31,69 @@ def main():
     # 1. Custom Configuration
     print_section("1. Custom Configuration")
     
-    # Model configuration
+    # Model configuration with advanced options
     model_config = {
-        "model_name": "gpt2",  # or "cognitivecomputations/TinyDolphin-2.8-1.1b"
-        "learning_rate": 0.0001,
-        "continue_learning": True
+        "model_name": "gpt2",  # or "deepseek-ai/deepseek-llm-7b" for larger models
+        "learning_rate": 1e-4,
+        "continue_learning": True,
+        "device_map": "auto" if torch.cuda.is_available() else None,
+        "lora_config": {
+            'r': 16,  # Rank
+            'lora_alpha': 32,
+            'lora_dropout': 0.1,
+            'task_type': 'CAUSAL_LM',
+            'target_modules': None  # Auto-detect
+        },
+        "max_memory": {0: '20GB'} if torch.cuda.is_available() else None
     }
     
     print("Initializing ARC with configuration:")
-    print(json.dumps(model_config, indent=2))
+    print(json.dumps(model_config, indent=2, default=str))
     
     try:
         model = LearningARCConsciousness(
             model_name=model_config["model_name"],
             learning_rate=model_config["learning_rate"],
-            continue_learning=model_config["continue_learning"]
+            continue_learning=model_config["continue_learning"],
+            lora_config=model_config["lora_config"],
+            device_map=model_config["device_map"],
+            max_memory=model_config["max_memory"]
         )
         print("\n[SUCCESS] Model initialized with custom configuration")
+        
+        # Print model info
+        print("\nModel Information:")
+        print(f"Device: {next(model.transformer.model.parameters()).device}")
+        print(f"Model class: {model.transformer.model.__class__.__name__}")
+        print(f"Trainable parameters: {sum(p.numel() for p in model.transformer.model.parameters() if p.requires_grad):,}")
+        print(f"Total parameters: {sum(p.numel() for p in model.transformer.model.parameters()):,}")
+        
     except Exception as e:
         print(f"\n[ERROR] Failed to initialize model: {e}")
-        return  # This return is now properly inside the function
+        import traceback
+        traceback.print_exc()
+        return
 
     # 2. Model State Management
     print_section("2. Model State Management")
     
     # Try to load existing state
     print("\nAttempting to load existing model state...")
-    if model.load_learning_state():
-        print("[SUCCESS] Existing state loaded successfully!")
-    else:
-        print("No existing state found - starting fresh")
+    try:
+        if model.load_learning_state():
+            print("[SUCCESS] Existing state loaded successfully!")
+        else:
+            print("No existing state found - starting fresh")
+            
+        # Save a test state
+        test_save_path = "test_model_state"
+        print(f"\nSaving test state to: {test_save_path}")
+        model.save_learning_state(test_save_path)
+        print("[SUCCESS] Test state saved successfully!")
+        
+    except Exception as e:
+        print(f"[ERROR] State management operation failed: {e}")
+        return
     
     # Save initial state
     print("\nSaving initial model state...")
