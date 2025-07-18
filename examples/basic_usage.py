@@ -129,7 +129,7 @@ def main():
                 
                 # Process user input and get response
                 print("\nARC is thinking...")
-                response = model.process_user_interaction(
+                response, reflection = model.process_user_interaction(
                     user_input,
                     max_new_tokens=150,
                     temperature=0.7,
@@ -139,6 +139,8 @@ def main():
                 # Display the response
                 if isinstance(response, dict) and 'thought' in response:
                     print(f"\nARC: {response['thought']}\n")
+                    # Optionally show reflection
+                    # print(f"Internal reflection: {reflection['thought']}\n")
                 else:
                     print(f"\nARC: {response}\n")
                 
@@ -168,7 +170,7 @@ def main():
     
     print("\nThank you for using ARC Core!")
     print("For more examples and documentation:")
-    print("https://github.com/metisos/arc-core")
+    print("https://github.com/metisos/arc_coreV1")
 
 if __name__ == "__main__":
     main()

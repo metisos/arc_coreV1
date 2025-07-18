@@ -64,9 +64,11 @@ def main():
     
     for phrase in test_phrases:
         print(f"\nTesting phrase: {phrase}")
-        response = model.process_user_interaction(phrase)
+        response, reflection = model.process_user_interaction(phrase)
         if isinstance(response, dict) and 'thought' in response:
             print(f"ARC: {response['thought']}")
+            # Optionally show reflection
+            # print(f"Internal reflection: {reflection['thought']}")
         else:
             print(f"ARC: {response}")
     

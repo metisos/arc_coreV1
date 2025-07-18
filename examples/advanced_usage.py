@@ -112,7 +112,7 @@ def main():
     
     for phrase in test_phrases:
         print(f"\nInput: {phrase}")
-        response = model.process_user_interaction(phrase)
+        response, reflection = model.process_user_interaction(phrase)
         
         if isinstance(response, dict):
             print("\nResponse:")
@@ -121,6 +121,10 @@ def main():
             
             if 'novel_concepts' in response and response['novel_concepts']:
                 print(f"- Novel Concepts: {', '.join(response['novel_concepts'])}")
+                
+            # Optionally show reflection data
+            # print("\nInternal Reflection:")
+            # print(f"- Thought: {reflection.get('thought', 'N/A')}")
     
     # 3. Training and Learning
     print_section("3. Training and Learning")
@@ -134,8 +138,8 @@ def main():
     print("Training the model with custom data...")
     for question, answer in training_data:
         print(f"\nTeaching: Q: {question} | A: {answer}")
-        response = model.process_user_interaction(f"{question} {answer}")
-        print(f"Learning status: {'Success' if response else 'Failed'}")
+        response, reflection = model.process_user_interaction(f"{question} {answer}")
+        print(f"Learning status: {'Success' if response and 'learned' in response and response['learned'] else 'Failed'}")
     
     # 4. Model Persistence
     print_section("4. Model Persistence")
@@ -175,10 +179,12 @@ def main():
         # Test the loaded model
         test_question = "What is the capital of France?"
         print(f"\nTesting loaded model with: {test_question}")
-        response = new_model.process_user_interaction(test_question)
+        response, reflection = new_model.process_user_interaction(test_question)
         
         if isinstance(response, dict) and 'thought' in response:
             print(f"Response: {response['thought']}")
+            # Optionally display reflection
+            # print(f"Internal reflection: {reflection['thought']}")
         else:
             print(f"Response: {response}")
             

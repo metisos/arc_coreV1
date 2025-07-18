@@ -23,7 +23,7 @@ def run_example(model_name, custom_lora_config=None):
         )
         
         # Test the model with a simple interaction
-        response = arc.process_user_interaction(
+        response, reflection = arc.process_user_interaction(
             "Hello, how are you?",
             max_new_tokens=100,
             temperature=0.7
@@ -31,6 +31,9 @@ def run_example(model_name, custom_lora_config=None):
         
         print(f"\nResponse from {model_name}:")
         print(f"{response['thought']}\n")
+        
+        # You can also access the model's internal reflection
+        # print(f"Internal reflection: {reflection['thought']}\n")
         
         # Show model info and configuration
         print("\nModel Information:")
